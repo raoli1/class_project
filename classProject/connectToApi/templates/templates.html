@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+#div1{
+    text-align: center;
+    font-family: Chalkduster, fantasy;
+    font-size: 40px;
+    color: #00326e;
+}
+#div2{
+    text-align: center;
+    font-family: Optima, sans-serif;
+    font-size: 20px;
+    color: #00326e;
+}
+
+#div3{
+    text-align: center;
+    font-family: Optima, sans-serif;
+    font-size: 20px;
+    color: #00326e;
+}
+
+#button{
+    font-family: Optima, sans-serif;
+    background-color: white;
+    color: #00326e;
+    border: 2px solid #00326e; 
+    
+}
+
+body {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%);
+}
+</style>
+
+<body>
+<div id="div1">
+<p>WELCOME TO OUR APP</p>
+</div>
+
+<div id="div2">
+<p>Enter Start Year and End Year in the fields, then click "Submit" to submit the form:</p>
+</div>
+
+<div id="div3">
+<form action="/api/connectToApi" method="get">
+<label>Start Year: <input type="text" name="startyear" placeholder="start year>=1990"></label>
+<label>End Year: <input type="text" name="endyear" placeholder="end year<=2019"></label>
+<input id="button" type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>

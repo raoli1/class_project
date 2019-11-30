@@ -1,0 +1,8 @@
+azure-functions
+Flask
+pandas
+fredapi
+pyodbc
+requests
+matplotlib
+numpy
