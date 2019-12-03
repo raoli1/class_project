@@ -143,8 +143,6 @@ def result(startyear,endyear):
     plt.clf()
     corr = np.corrcoef(x,y)[0][1]
     
-    
-    
     x_NY = []
     y_NY = []
 
@@ -181,5 +179,4 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             "POST": c.post(uri).data
         }
         resp = doAction.get(req.method).decode()
-        #return func.HttpResponse(resp, mimetype='text/html')
-        return func.HttpResponse(resp, mimetype='text/html')
+    return func.HttpResponse(resp, mimetype='text/html')

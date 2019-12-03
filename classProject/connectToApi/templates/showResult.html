@@ -17,6 +17,13 @@ table{
   margin: auto;
   width: 60%;
 }
+#button{
+    font-family: Optima, sans-serif;
+    background-color: white;
+    color: #00326e;
+    border: 2px solid #00326e; 
+    
+}
 </style>
 </head>
 <body>
@@ -73,7 +80,10 @@ The correlation coefficient of Case-Shiller Index and Employment from {{startyea
 </div>
 <div>
 <form action="/api/connectToApi" method="get">
-<input type="submit" value="Back To Home">
+<input id="button" type="submit" value="Back To Home">
+</form>
+<form action="/api/createPlot" method="get">
+<input id="button" type="submit" value="More Information">
 </form>
 </div>
 </body>

@@ -6,3 +6,8 @@ pyodbc
 requests
 matplotlib
 numpy
+plotly
+seaborn
+quandl
+pathlib
+psutil

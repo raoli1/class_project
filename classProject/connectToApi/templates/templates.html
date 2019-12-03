@@ -21,6 +21,12 @@
     font-size: 20px;
     color: #00326e;
 }
+#div4{
+    text-align: center;
+    font-family: Optima, sans-serif;
+    font-size: 20px;
+    color: #F08080;
+}
 
 #button{
     font-family: Optima, sans-serif;
@@ -46,11 +52,41 @@ body {
 </div>
 
 <div id="div3">
-<form action="/api/connectToApi" method="get">
-<label>Start Year: <input type="text" name="startyear" placeholder="start year>=1990"></label>
-<label>End Year: <input type="text" name="endyear" placeholder="end year<=2019"></label>
-<input id="button" type="submit" value="Submit">
+<form id="userinput" onSubmit="return myFunction()">
+<label>Start Year: <input id="startyear" type="number" name="startyear" required></label>
+<label>End Year: <input id="endyear" type="number" name="endyear" required></label>
+<input id="button" type="submit" value="Submit" onclick="myFunction()">
 </form>
 </div>
+<div id="div4">
+<p id="mesg"></p>
+</div>
+
+<script>
+
+function myFunction() {
+  var startyear = document.getElementById("startyear").value;
+  var endyear = document.getElementById("endyear").value;
+  
+    if (startyear < 1990 || endyear > 2019) {
+        document.getElementById("mesg").innerHTML = "Start Year must be >= 1990 and End Year must be <=2019 !!!";
+  } 
+    else if (endyear <= startyear) {
+        document.getElementById("mesg").innerHTML = "End Year Must be greater than Start Year !!!";
+  } 
+    else if ((endyear - startyear +1) > 20){
+        document.getElementById("mesg").innerHTML = "Maximum Range is 20 Years !!!";
+    }
+    else{
+        document.getElementById("mesg").style.display = "none";
+        document.getElementById('userinput').action = '/api/connectToApi';
+        document.getElementById('userinput').method = "get";
+        return true;
+    }
+  
+  return false;
+  
+} 
+</script>
 </body>
 </html>
