@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+#div1{
+    text-align: center;
+    font-family: Chalkduster, fantasy;
+    font-size: 40px;
+    color: #00326e;
+}
+#div2{
+    text-align: center;
+    font-family: Optima, sans-serif;
+    font-size: 20px;
+    color: #00326e;
+}
+
+#div3{
+    text-align: center;
+    font-family: Optima, sans-serif;
+    font-size: 20px;
+    color: #00326e;
+}
+#div4{
+    text-align: center;
+    font-family: Optima, sans-serif;
+    font-size: 20px;
+    color: #F08080;
+}
+
+#button{
+    font-family: Optima, sans-serif;
+    background-color: white;
+    color: #00326e;
+    border: 2px solid #00326e; 
+    
+}
+
+body {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%);
+}
+</style>
+
+<body>
+<div id="div1">
+<p>WELCOME TO OUR APP</p>
+</div>
+
+<div id="div2">
+<p>Enter Start Year and End Year in the fields, then click "Submit" to submit the form:</p>
+</div>
+
+<div id="div3">
+<form id="userinput" onSubmit="return myFunction()">
+<label>Start Year: <input id="startyear" type="number" name="startyear" required></label>
+<label>End Year: <input id="endyear" type="number" name="endyear" required></label>
+<input id="button" type="submit" value="Submit" onclick="myFunction()">
+</form>
+</div>
+<div id="div4">
+<p id="mesg"></p>
+</div>
+
+<script>
+
+function myFunction() {
+  var startyear = document.getElementById("startyear").value;
+  var endyear = document.getElementById("endyear").value;
+  
+    if (startyear < 1990 || endyear > 2019) {
+        document.getElementById("mesg").innerHTML = "Start Year must be >= 1990 and End Year must be <=2019 !!!";
+  } 
+    else if (endyear <= startyear) {
+        document.getElementById("mesg").innerHTML = "End Year Must be greater than Start Year !!!";
+  } 
+    else if ((endyear - startyear +1) > 20){
+        document.getElementById("mesg").innerHTML = "Maximum Range is 20 Years !!!";
+    }
+    else{
+        document.getElementById("mesg").style.display = "none";
+        document.getElementById('userinput').action = '/api/connectToApi';
+        document.getElementById('userinput').method = "get";
+        return true;
+    }
+  
+  return false;
+  
+} 
+</script>
+</body>
+</html>

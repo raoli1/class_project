@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%);
+}
+div{
+  text-align: center;
+  font-family: Optima, sans-serif;
+  font-size: 20px;
+  color: #00326e;
+  padding: 2%;
+}
+table{
+  margin: auto;
+  width: 60%;
+}
+#button{
+    font-family: Optima, sans-serif;
+    background-color: white;
+    color: #00326e;
+    border: 2px solid #00326e; 
+    
+}
+</style>
+</head>
+<body>
+<div>
+<h1>Case-Shiller Index and Employment Data From {{startyear}} To {{endyear}}</h1>
+</div>
+<div>
+<h1>National</h1>
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Employment</th>
+    <th>Case-Shiller Index</th>
+  </tr>
+{% for key in result[0] %}
+  <tr>
+    <td>{{key}}</td>
+    <td>{{"{0:.2f}".format(result[0][key][2])}}</td>
+    <td>{{"{0:.2f}".format(result_housing[0][key][2])}}</td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+<div>
+<img src="data:image/png;base64,{{ plotData }}"\>
+<p>
+The correlation coefficient of Case-Shiller Index and Employment from {{startyear}} to {{endyear}} : {{"{0:.2f}".format(corr)}}
+</p>
+</div>
+
+<div>
+<h1>New York</h1>
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Employment</th>
+    <th>Case-Shiller Index</th>
+  </tr>
+{% for key in result[1] %}
+  <tr>
+    <td>{{key}}</td>
+    <td>{{"{0:.2f}".format(result[1][key][2])}}</td>
+    <td>{{"{0:.2f}".format(result_housing[1][key][2])}}</td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+<div>
+
+<img src="data:image/png;base64,{{ plotData_NY }}"\>
+<p>
+The correlation coefficient of Case-Shiller Index and Employment from {{startyear}} to {{endyear}} : {{"{0:.2f}".format(corr_NY)}}
+</p>
+</div>
+<div>
+<form action="/api/connectToApi" method="get">
+<input id="button" type="submit" value="Back To Home">
+</form>
+<form action="/api/createPlot" method="get">
+<input id="button" type="submit" value="More Information">
+</form>
+</div>
+</body>
+</html>
