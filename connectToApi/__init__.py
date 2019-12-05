@@ -85,7 +85,6 @@ def queryFred(startyear, endyear):
         if year >= int(startyear) and year <= int(endyear):
             result_New_York.append({'year':year,'month':month,'value':data})
     
-    
     return(result_national,result_New_York)
 
 def getAnnual(result_national, result_New_York):
@@ -108,7 +107,6 @@ def getAnnual(result_national, result_New_York):
             annual_New_York[record['year']][1]+=1
             annual_New_York[record['year']][2]=annual_New_York[record['year']][0]/annual_New_York[record['year']][1]
 
-    
     return (annual, annual_New_York)
 
 @app.route('/api/connectToApi')
