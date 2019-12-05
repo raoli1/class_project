@@ -17,9 +17,9 @@ Methodology:
 
 We approached this project by connecting to several data sources, using APIs from Quandl and the Federal Reserve Bank of St. Louis to gather the Housing Price Index, as well as demographic and economic information on a nationwide basis. We gathered similar information on a statewide basis for a few states in order to look for confirmation of our nationwide findings on a smaller scale. 
 
-We then analyzed the correlation coefficients of the demographic and economic factors we had gathered with the HPI for each area under analysis, and built models using linear regression to examine how much of the variance in the Housing Price index could be explained by the demographic and economic factors we were considering.
+We then used Python through Jupyter Notebooks to analyze the correlation coefficients of the demographic and economic factors we had gathered with the HPI for each area under analysis, and built models using linear regression to examine how much of the variance in the Housing Price index could be explained by the demographic and economic factors we were considering.
 
-To enable further consideration and user interaction, we also built a web app to connect to these APIs. We were particularly concerned with getting a clear picture of the effect that unemployment might have on housing prices, so we built the app so that a user can specify a given date range and see several visualizations of the correlation between nationwide employment and housing prices, as well as a correlation coefficient for those specific dates on both a nationwide and New York State basis. 
+To enable further consideration and user interaction, we also built a web app on Microsoft Azure to connect to these APIs, also using Python. We were particularly concerned with getting a clear picture of the effect that unemployment might have on housing prices, so we built the app so that a user can specify a given date range and see several visualizations of the correlation between nationwide employment and housing prices, as well as a correlation coefficient for those specific dates on both a nationwide and New York State basis. 
 
 
 
@@ -78,8 +78,7 @@ Our group was surprised to find that unemployment rates, while not consistently 
 
 Our results can also be examined using visualization on our web app. We have created visualizations there to look at specific time periods, as well as the behavior over time, of the correlations between the housing prices, population, and unemployment. One might consider using these tools to examine the period of time just after the 2008 recession hit, when housing prices dropped yet population continued to increase, as an interesting exercise. The links to the visualizations available on the web app are as follows:
 
-https://visualizedata.azurewebsites.net/api/connectToApi
-https://visualizedata.azurewebsites.net/api/createPlot
+ http://visualizedata.azurewebsites.net/api/homepage
 
 
 
