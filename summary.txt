@@ -1,0 +1,89 @@
+
+
+Class Project - Summary
+Rao Li, Peilin Zhen, and Maria Edwards
+
+
+
+Purpose:
+
+In the past 30 years, we have seen a lot of variation in housing prices in the US, from relatively stable prices in the 90s, through the housing bubble of the early 2000s and the following dip during the recession of 2008. In the coming decades, the US will see a growing population and a change in age demographics, as the median age increases as does the percentage of the population at retirement age. The country will also face unknown economic challenges as climate change, trade policies, the influence of technology, and other factors influence US GDP, median income and unemployment.
+
+In this project, we attempted to analyze how these changes might influence housing prices in the US by studying how they have done so in the past, in order to gain a stronger understanding of what is to come. 
+
+
+
+Methodology:
+
+We approached this project by connecting to several data sources, using APIs from Quandl and the Federal Reserve Bank of St. Louis to gather the Housing Price Index, as well as demographic and economic information on a nationwide basis. We gathered similar information on a statewide basis for a few states in order to look for confirmation of our nationwide findings on a smaller scale. 
+
+We then analyzed the correlation coefficients of the demographic and economic factors we had gathered with the HPI for each area under analysis, and built models using linear regression to examine how much of the variance in the Housing Price index could be explained by the demographic and economic factors we were considering.
+
+To enable further consideration and user interaction, we also built a web app to connect to these APIs. We were particularly concerned with getting a clear picture of the effect that unemployment might have on housing prices, so we built the app so that a user can specify a given date range and see several visualizations of the correlation between nationwide employment and housing prices, as well as a correlation coefficient for those specific dates on both a nationwide and New York State basis. 
+
+
+
+Findings:
+
+On a nationwide basis, we utilized the Case-Schiller U.S. National Home Prices Index, as accessed through the Federal Reserve Bank of St. Louis API, as a measure of housing prices. As nationwide demographic and economic factors, we referenced the following:
+
+- S&P 500 real monthly price (Quandl)
+- Annual GDP (Federal Reserve Bank of St. Louis)
+- Annual US Age Dependency Ratio, or ratio of older dependents to working-age population) (Federal Reserve Bank of St. Louis)
+- Monthly Civilian Non-Institutional Population in the age groups of 20-24, 25-54, and 55 or over (Federal Reserve Bank of St. Louis)
+- Monthly Unemployment Rate (Federal Reserve Bank of St. Louis)
+- Quarterly Home Vacancy Rate (Federal Reserve Bank of St. Louis)
+
+We found the strongest correlations between housing prices and the GDP with a correlation coefficient of .94, the population in any each of the age groups we examined with correlation coefficients between .83 and .89, and the S&P 500 with correlation coefficients. The smallest correlations were between housing prices and unemployment, with a correlation coefficient of -.08, and between housing prices and the nationwide homeownership rate, with a correlation coefficient of .33.
+
+We then used linear regression to build a model expressing the nationwide Case-Schiller index as dependent on all of the demographic and economic factors listed above. We achieved a root mean squared error of 10.19 and an r2 score of .95. This tells us that there is still a lot of variance in the housing prices predicted by the model and the actual housing prices, but our model explains 95% of that variance.	
+
+To see if the correlations we found on a nationwide basis are reflected on a statewide basis in a few regions of the country, we also examined similar factors in California, New York State, Ohio, and South Carolina. To represent housing prices, we used each state's Quarterly Housing Price Index, and to represent economic and demographic factors we used the following:
+
+- Monthly S&P 500 (Quandl)
+- Annual  GDP (Federal Reserve Bank of St. Louis)
+- Annual Unemployment Rate (Federal Reserve Bank of St. Louis)
+- Annual Homeownership Rate (Federal Reserve Bank of St. Louis)
+- Annual Resident Population (Federal Reserve Bank of St. Louis)
+- Annual Median Income Rate (Federal Reserve Bank of St. Louis)
+- Annual Home Vacancy Rate (Federal Reserve Bank of St. Louis)
+
+In California, we found that the highest correlations were between housing prices and population, with a correlation coefficient of .87, housing prices and GDP with a correlation coefficient of .89, and housing prices and the S&P 500, with a correlation coefficient of .82, while the lowest correlations were between housing prices and the unemployment rate with a correlation coefficient of -.15, housing prices and the home ownership rate with a correlation coefficient of .3836, and housing prices with the home vacancy rate, with a correlation coefficient of -.03. 
+
+In New York, we found that the highest correlations were between housing prices and population, with a correlation coefficient of .92, housing prices and GDP with a correlation coefficient of .93, and housing prices and the S&P 500, with a correlation coefficient of .81, while the lowest correlations were between housing prices and the unemployment rate with a correlation coefficient of -.07, housing prices and the home ownership rate with a correlation coefficient of .35, and between housing prices and the median household income, with a correlation coefficient of .48.
+
+In Ohio, we found that the highest correlations were between housing prices and population, with a correlation coefficient of .97, housing prices and GDP with a correlation coefficient of ..90, and housing prices and the S&P 500, with a correlation coefficient of .85, while the lowest correlations were between housing prices and the unemployment rate with a correlation coefficient of -.07, housing prices and the home ownership rate with a correlation coefficient of .18, and housing prices with the median household income, with a correlation coefficient of .26.
+
+In South Carolina, we found that the highest correlations were between housing prices and population, with a correlation coefficient of .97, housing prices and GDP with a correlation coefficient of .97, and housing prices and the S&P 500, with a correlation coefficient of .88, while the lowest correlations were between housing prices and the unemployment rate with a correlation coefficient of .27, housing prices and the home ownership rate with a correlation coefficient of .06, and housing prices with the median household income, with a correlation coefficient of .16.
+
+We then used linear regression to build a model for the housing price index of each state we analyzed as dependent on the demographic and economic factors we looked at, and were able to achieve r2 scores between .91 for California and .99 for Ohio, telling us that our models explained a range of the variance in the housing prices for these states. Root mean squared error for these models was between 5.25 for Ohio and 44.07 for California, telling us that the model we built for Ohio performs much better than the model we built for California, and that there is a wide variance in how closely the variables we are considering are able to account for the fluctuation of housing prices. We can attribute this to more location-specific factors that we have not been able to take into account.
+
+
+
+Research limitations:
+
+Our research was limited by the data that we were able to find. In our nationwide analysis we included age dependency ratio as well as a specific breakdown of the age demographics of the population. We were not able to find this specific information for each state we looked at, so we did not include it. This would have been interesting to analyze on a statewide basis, as we found that national housing prices was more highly correlated with older demographic groups than with younger groups.
+
+We also included home ownership rates and home vacancy rates in the statewide research that we could not find on a nationwide basis, but the correlation coefficients for these factors were consistently low or middling in each state we looked at, so we do not believe they would have significantly improved our nationwide model.
+
+
+
+Conclusions:
+
+We found that the factors that had the highest correlation coefficients when compared to housing prices were consistently the GDP, the S&P 500, and population. This was consistent across nationwide and statewide analyses. This tells us that overall economic factors consistently drive housing prices, which is not a surprise. We can also speculate that population consistently drives housing prices as an increasing population increases the demand for homes. However, one might wonder whether the correlation here is to some degree just a correlation between two measures which are both independently increasing.
+
+We also found that on a nationwide basis, the correlation between housing prices and the size of the population in a particular age group increased as the age of that group increased. The correlation coefficient for the age group 20 to 24 was .83, the correlation coefficient for the for the age group 25 to 54 was .86, and the correlation coefficient for the age group 55 and over was .89. One can speculate this is due to homeownership rates being higher for older populations.
+
+Our group was surprised to find that unemployment rates, while not consistently the lowest in correlation with housing prices, were also not one of the strongest. Here one might speculate that there is a delay in an economic downturn, and the effects of that downturn on employment. Companies will take time to see profits decline before they lay off employees, so this indicator may just be functioning on a different timeline than something like the S&P500, which could reflect economic fluctuations very quickly and therefore influence housing prices more quickly.
+
+Our results can also be examined using visualization on our web app. We have created visualizations there to look at specific time periods, as well as the behavior over time, of the correlations between the housing prices, population, and unemployment. One might consider using these tools to examine the period of time just after the 2008 recession hit, when housing prices dropped yet population continued to increase, as an interesting exercise. The links to the visualizations available on the web app are as follows:
+
+https://visualizedata.azurewebsites.net/api/connectToApi
+https://visualizedata.azurewebsites.net/api/createPlot
+
+
+
+Sources:
+
+Federal Reserve Bank of St. Louis: https://fred.stlouisfed.org/ 
+Quandl: quandl.com
